@@ -1,0 +1,289 @@
+REPOSITORY                  TAG                 IMAGE ID            CREATED             SIZE
+abogushov/ubuntu-tmp-file   latest              3192265d847a        1 second ago        113MB
+
+
+Отличия образа от контейнера:
+
+- Образ 3192265d847a создан на основе контейнера 565b305d0686 (поле Container).
+- Контейнер имеет состояние (поле State).
+- Образ имеет родительский образ (поле Parent).
+- Контейнер знает на основе какого образа он запущен (поле Image).
+- Контейнер имеет имя (поле  Name).
+- Образ имеет теги назначенные ему при коммите (поле RepoTags)
+- Контейнер имеет доступ к сети (поле NetworkSettings).
+и т.д.
+
+Итого, образ – это зафиксированный набор нескольких слоев Layer FS. Существует базовый образ scratch
+на основе которого созданы все остальные образы.
+Контейнеры запускаются на основе некоторого образа,
+все именения в файловой системе сохраняются в самом верхнем слое и могу быть зафиксированы с помощью команды commit, таким образом будет создан образ.
+
+
+Вывод для контейнера
+docker inspect 565b305d0686
+[
+    {
+        "Id": "565b305d06868a330c13c5bdb576cb185dbc304cf5ba586c56b373cf5708134e",
+        "Created": "2018-06-05T08:37:13.895479019Z",
+        "Path": "/bin/bash",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 3134,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2018-06-05T08:40:25.342623079Z",
+            "FinishedAt": "2018-06-05T08:38:46.369695887Z"
+        },
+        "Image": "sha256:0b1edfbffd27c935a666e233a0042ed634205f6f754dbe20769a60369c614f85",
+        "ResolvConfPath": "/var/lib/docker/containers/565b305d06868a330c13c5bdb576cb185dbc304cf5ba586c56b373cf5708134e/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/565b305d06868a330c13c5bdb576cb185dbc304cf5ba586c56b373cf5708134e/hostname",
+        "HostsPath": "/var/lib/docker/containers/565b305d06868a330c13c5bdb576cb185dbc304cf5ba586c56b373cf5708134e/hosts",
+        "LogPath": "/var/lib/docker/containers/565b305d06868a330c13c5bdb576cb185dbc304cf5ba586c56b373cf5708134e/565b305d06868a330c13c5bdb576cb185dbc304cf5ba586c56b373cf5708134e-json.log",
+        "Name": "/elated_villani",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "CapAdd": null,
+            "CapDrop": null,
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "shareable",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DiskQuota": 0,
+            "KernelMemory": 0,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": 0,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/79710af7de6619bd1ce2406dc8671ec580bb575f429136da59b02efe885be8ca-init/diff:/var/lib/docker/overlay2/fd38fdb1ede8d3519a61df6954faca3aeb5cbe50fb1cfbef0f0d7669fea4d091/diff:/var/lib/docker/overlay2/1cd09d542a59f5ff735aa1db113e25880a7f3fb06958c1a58b0b246a5d01778c/diff:/var/lib/docker/overlay2/d14bf672ae04eb789ed5dd526a6d31733f880f4913d444b7038f2f682df05ac9/diff:/var/lib/docker/overlay2/bcfa95809e499109cd6aac7f61dfc1c78856dec45997eb74d2c33fa135b86ce0/diff:/var/lib/docker/overlay2/f538cd187aa488e5aad428d551321b4c6ca8f2e783adbdf6e65d0ef081bd7711/diff",
+                "MergedDir": "/var/lib/docker/overlay2/79710af7de6619bd1ce2406dc8671ec580bb575f429136da59b02efe885be8ca/merged",
+                "UpperDir": "/var/lib/docker/overlay2/79710af7de6619bd1ce2406dc8671ec580bb575f429136da59b02efe885be8ca/diff",
+                "WorkDir": "/var/lib/docker/overlay2/79710af7de6619bd1ce2406dc8671ec580bb575f429136da59b02efe885be8ca/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "565b305d0686",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": true,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "ubuntu:16.04",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "e456cae8bef5d769a860fa02b56cda131b0040fba92853e53e5bb554613a39e6",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/e456cae8bef5",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "c70c37368963771f4f3387cac48a8b6ff0dd5b49351c8b809946f7f323ffbb70",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "d57658c4dd73db52503bde244ffaf77cd45f259650fa50594df34e843ff9e5d6",
+                    "EndpointID": "c70c37368963771f4f3387cac48a8b6ff0dd5b49351c8b809946f7f323ffbb70",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+
+Вывод для образа
+docker inspect 3192265d847a
+[
+    {
+        "Id": "sha256:3192265d847acfb2d244ff6bb1903fd73d82e31d206473dbf706bbc1e2cea423",
+        "RepoTags": [
+            "abogushov/ubuntu-tmp-file:latest"
+        ],
+        "RepoDigests": [],
+        "Parent": "sha256:0b1edfbffd27c935a666e233a0042ed634205f6f754dbe20769a60369c614f85",
+        "Comment": "",
+        "Created": "2018-06-05T08:42:24.251574669Z",
+        "Container": "565b305d06868a330c13c5bdb576cb185dbc304cf5ba586c56b373cf5708134e",
+        "ContainerConfig": {
+            "Hostname": "565b305d0686",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": true,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "ubuntu:16.04",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "DockerVersion": "18.03.1-ce",
+        "Author": "",
+        "Config": {
+            "Hostname": "565b305d0686",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": true,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": true,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "Image": "ubuntu:16.04",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 112952054,
+        "VirtualSize": 112952054,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/fd38fdb1ede8d3519a61df6954faca3aeb5cbe50fb1cfbef0f0d7669fea4d091/diff:/var/lib/docker/overlay2/1cd09d542a59f5ff735aa1db113e25880a7f3fb06958c1a58b0b246a5d01778c/diff:/var/lib/docker/overlay2/d14bf672ae04eb789ed5dd526a6d31733f880f4913d444b7038f2f682df05ac9/diff:/var/lib/docker/overlay2/bcfa95809e499109cd6aac7f61dfc1c78856dec45997eb74d2c33fa135b86ce0/diff:/var/lib/docker/overlay2/f538cd187aa488e5aad428d551321b4c6ca8f2e783adbdf6e65d0ef081bd7711/diff",
+                "MergedDir": "/var/lib/docker/overlay2/9e088725963d93e33f91084260c89ce97dcced94e4bf9b9ade8f1cc63e3b6fc9/merged",
+                "UpperDir": "/var/lib/docker/overlay2/9e088725963d93e33f91084260c89ce97dcced94e4bf9b9ade8f1cc63e3b6fc9/diff",
+                "WorkDir": "/var/lib/docker/overlay2/9e088725963d93e33f91084260c89ce97dcced94e4bf9b9ade8f1cc63e3b6fc9/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:c8aa3ff3c3d351787cc5f84d960870fad16c9615aab7aa47ab343906fc8cfc24",
+                "sha256:82718dbf791d95622b5edeedbfbc6d0f01d406d4035a30a416d51d2c7e193486",
+                "sha256:3a0404adc8bdbcf7cfc28ca3a3e703d6db86f4e11853664085f00add69ccb3d7",
+                "sha256:cd7b4cc1c2dd51a75939212a7b5c278eb899ac4330b9482038f72f7e6feba975",
+                "sha256:bf3d982208f5bad81239ff690e81ad90e28c3cd81634b079cb938757d2435902",
+                "sha256:7969894bfff1bed9d92de27b7deedf7522318e00425fa3e47b3002b9cf7ea50a"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2018-06-05T08:42:24.256337062Z"
+        }
+    }
+]
